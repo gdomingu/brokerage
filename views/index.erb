@@ -1,0 +1,11 @@
+
+<h1>Dominguez, Paul, and Aaron Brokerage Database</h1>
+
+<% @clients.each do |client| %>
+<p>Client Name: <%= client.name %> |
+<a href="/edit_client/<%= client.id %>">Edit</a> |
+<a href="/client_profile/<%= client.id %>">Profile</a>|</p>
+
+
+<% end %>
+<a href="/new_client"> New Client</a>

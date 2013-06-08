@@ -1,0 +1,9 @@
+<p>Edit Client Info</p>
+
+<form method="post" action="/save_client/<%= @client.id %>">
+  Name:
+  <input type="text" name="client_name" value="<%= @client.name %>">
+
+  <button> Save Client </button>
+</form>
+

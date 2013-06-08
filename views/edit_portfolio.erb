@@ -1,0 +1,21 @@
+<p>Edit Portfolio Info</p>
+
+<form method="post" action="/save_portfolio/<%= @portfolio.id %>">
+  Name:
+  <%= pre_filled_input("portfolio[name]]", @portfolio.name) %>
+
+  <br>
+  <!--Here is where I set up the check boxes to add stocks into to the bridge between portfolio and stocks -->
+  Stocks:<br>
+  <% Stock.all.each do |stock| %>
+  <!-- This strange looking name is going to return the name of the portfolio and an array of the stock _ids you check. make sure to put the S or active record won't know what to do with the array.-->
+    <input type="checkbox" name="portfolio[stock_ids][]" value="<%= stock.id %>">
+    <%= stock.name %>
+    <br>
+  <% end %>
+    <br>
+
+  <button class="btn"> Save Portfolio </button>
+  <br>
+  <p>Don't see the stock you want? Add one <a href="/new_stock">here</a></p>
+</form>
